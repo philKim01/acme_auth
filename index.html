@@ -24,6 +24,7 @@
       onSubmit(ev){
         ev.preventDefault();
         const { username, password } = this.state;
+        console.log(this.props)
         this.props.signIn({
           username,
           password
@@ -96,4 +97,3 @@
   </script>
   </body>
 </html>
-

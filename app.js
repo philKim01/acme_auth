@@ -3,11 +3,13 @@ const app = express();
 app.use(express.json());
 const { models: { User }} = require('./db');
 const path = require('path');
+const JWT = require('jsonwebtoken')
 
 app.get('/', (req, res)=> res.sendFile(path.join(__dirname, 'index.html')));
 
 app.post('/api/auth', async(req, res, next)=> {
   try {
+
     res.send({ token: await User.authenticate(req.body)});
   }
   catch(ex){
